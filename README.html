@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Gradient Border Box</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vmin;
+            font-family: sans-serif;
+        }
+
+        .gradient-border-box {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: #222;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .gradient-border-box::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            background: linear-gradient(45deg, #ff0000, #ff9900, #33cc33, #3399ff, #cc33cc, #ff0000);
+            background-size: 400%;
+            animation: rotateGradient 6s linear infinite;
+            z-index: -1;
+            border-radius: 24px;
+            filter: blur(2px);
+        }
+
+        @keyframes rotateGradient{
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+
+        .box-content h2{
+            margin: 0 0 10px;
+        }
+
+        .box-content p{
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gradient-border-box">
+        <div class="box-content">
+            <h2>Gradient Border</h2>
+            <p>Animated multicolor border effect</p>
+        </div>
+    </div>
+</body>
+
+      </html>
